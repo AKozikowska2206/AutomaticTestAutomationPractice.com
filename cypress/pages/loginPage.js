@@ -25,8 +25,20 @@ class LoginPage {
         }
     }
 
-    openWebsite(){
+    openWebsite() {
         cy.visit('http://automationpractice.com/index.php?controller=authentication&back=my-account')
+    }
+
+    genderChoice(gender) {
+        if (gender == 'man') {
+            cy.get('#id_gender1').click()
+        }
+        else if (gender == 'woman') {
+            cy.get('#id_gender2').click()
+        }
+        else {
+            cy.log('Gender not selected')
+        }
     }
 }
 

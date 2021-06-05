@@ -37,7 +37,7 @@ describe('Login page - check email for registration', () => {
 })
 
 describe('Registration', () => {
-    information.map(item => {
+    // information.map(item => {
         //STWORZYC MAPE DLA DWOCH KONETKSTOW
         //CONTEXT SKONCZONY
 
@@ -54,7 +54,7 @@ describe('Registration', () => {
         context('Registration forumlar input information...', () => {
 
             it("gender choice", () => {
-                cy.log("I want to make change with git")
+                loginPage.genderChoice('man')
             })
 
             it("first name", () => {
@@ -107,7 +107,7 @@ describe('Registration', () => {
             })
         })
     })
-})
+// })
 
 information.map(item => {
     // describe('Checking log in', () => {
