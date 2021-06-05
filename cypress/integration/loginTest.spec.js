@@ -54,7 +54,7 @@ describe('Registration', () => {
         context('Registration forumlar input information...', () => {
 
             it("gender choice", () => {
-
+                cy.log("I want to make change with git")
             })
 
             it("first name", () => {
