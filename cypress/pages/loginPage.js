@@ -55,6 +55,42 @@ class LoginPage {
             .type(password)
     }
 
+    selectDateOfBirth(date) {
+        cy
+            .get('#days')
+            .select(date)
+    }
+
+    selectMonthOfBirth(month) {
+        cy
+            .get('#months')
+            .select(month)
+    }
+
+    selectYearOfBirth(year) {
+        cy
+            .get('#years')
+            .select(year)
+    }
+
+    inputPermisionForNewsletter(newsletter) {
+        if (newsletter == 'yes') {
+            cy.get('#newsletter').click()
+        }
+        else {
+            cy.log('no permission')
+        }
+    }
+
+    inputPermisionForSpecialOffer(specialOffer) {
+        if (specialOffer == 'yes') {
+            cy.get('#optin').click()
+        }
+        else {
+            cy.log('no permission')
+        }
+    }
+
     inputNameCompany(company) {
         cy
             .get('#company')
@@ -71,6 +107,12 @@ class LoginPage {
         cy
             .get('#city')
             .type(city)
+    }
+
+    selectState(state) {
+        cy
+            .get('#id_state')
+            .select(state)
     }
 
     inputPostCode(post) {

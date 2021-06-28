@@ -5,21 +5,21 @@ const url = "http://automationpractice.com/index.php?controller=authentication&b
 
 const information = [
     { email: "Aleksandra", checkEmail: false },
-    { email: "Aleksandra123@test.pl", checkEmail: true },
+    { email: "Aleksandra1235@test.pl", checkEmail: true },
 ]
 
 describe('Login page - check email for registration', () => {
 
     beforeEach(() => {
-       loginPage.openWebsite(url)
+        loginPage.openWebsite(url)
     })
 
-      context('On the login website exist...', () => {
+    context('On the login website exist...', () => {
         it('create account formular', () => {
             cy
-            .get('#create-account_form > .page-subheading')
-            .should('be.visible')
-            .should('contain','Create an account')
+                .get('#create-account_form > .page-subheading')
+                .should('be.visible')
+                .should('contain', 'Create an account')
         })
     })
 
@@ -34,8 +34,7 @@ describe('Login page - check email for registration', () => {
 })
 
 const registration = [
-    { email: "Aleksandra123@test.pl", gender: "woman", firstName: "Aleksandra", lastName: "Kozikowska", pass: "12345", company:"xyz", adrres: "Krakowska 10", city: "Gliwice", postCode: "00000", phoneNumber: "123654789" }
-
+    { email: "Aleksandra1234@test.pl", gender: "woman", firstName: "Aleksandra", lastName: "Kozikowska", pass: "12345", date: "22", month: "June", year: "1994", newsletter: "yes", specialOffer: "yes", company: "xyz", adrres: "Krakowska 10", city: "Gliwice", state: "Idaho", postCode: "00000", phoneNumber: "123654789" }
 ]
 
 describe('Registration', () => {
@@ -67,17 +66,19 @@ describe('Registration', () => {
                 loginPage.inputPassword(item.pass)
             })
 
-            // it("date of birth", () => {
+            it("date of birth", () => {
+                loginPage.selectDateOfBirth(item.date)
+                loginPage.selectMonthOfBirth(item.month)
+                loginPage.selectYearOfBirth(item.year)
+            })
 
-            // })
+            it("permision for newsletter", () => {
+                loginPage.inputPermisionForNewsletter(item.newsletter)
+            })
 
-            // it("permision for newsletter", () => {
-
-            // })
-
-            // it("permision for special offer", () => {
-
-            // })
+            it("permision for special offer", () => {
+                loginPage.inputPermisionForSpecialOffer(item.specialOffer)
+            })
             it("name of company", () => {
                 loginPage.inputNameCompany(item.company)
             })
@@ -90,9 +91,9 @@ describe('Registration', () => {
                 loginPage.inputCity(item.city)
             })
 
-            // it("state", () => {
-
-            // })
+            it("state", () => {
+                loginPage.selectState(item.state)
+            })
 
             it("postcode", () => {
                 loginPage.inputPostCode(item.postCode)
@@ -102,9 +103,9 @@ describe('Registration', () => {
                 loginPage.inputPhoneNumber(item.phoneNumber)
             })
 
-            // it("confirm registration", () => {
-            //     loginPage.confirmRegistration()
-            // })
+            it("confirm registration", () => {
+                loginPage.confirmRegistration()
+            })
         })
     })
 })
